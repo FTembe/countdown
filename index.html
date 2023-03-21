@@ -119,16 +119,17 @@
 	</div>
 
 	<script type="text/javascript">
-
+		let interval = null;
 		document.querySelector('button').addEventListener('click', () => {
 			let to = document.querySelector('input').value;
-			if (!to){
+			if (!to) {
 				alert('Defina uma data no formato m-d-aaaa hh:m:s')
-				return false}
-			let interval = setInterval(update, 1000, to)
+				return false
+			}
+			interval = setInterval(update, 1000, to)
 		})
 
-		function update(to = '3-16-2023 23:59:00') {
+		function update(to) {
 			to = new Date(to);
 			let from = new Date();
 			diff = to - from;
@@ -148,12 +149,9 @@
 
 		}
 
-
-
 		function setTwoDigit(argument) {
 			return argument > 9 ? argument : '0' + argument;
 		}
-
 
 	</script>
 </body>
